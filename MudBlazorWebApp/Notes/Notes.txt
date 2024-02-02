@@ -1,0 +1,14 @@
+A wysiwyg rich text web editor based on UEditor and Blazor.
+https://github.com/ant-design-blazor/ueditor-blazor
+
+MudBlazor .NET 8 Web Application with Auto-Interactive Server and WebAssembly render modes
+https://github.com/tysongibby/MudBlazorTemplateApp
+
+Blazor Template pre-configured with MudBlazor.
+https://github.com/MudBlazor/Templates
+
+Useful third party extension components for MudBlazor, from the community contributors.
+https://github.com/CodeBeamOrg/CodeBeam.MudBlazor.Extensions
+
+A simple but powerful calendar component for MudBlazor.
+https://github.com/danheron/Heron.MudCalendar/
