@@ -1,0 +1,15 @@
+﻿@using MudBlazorWebApp.Client.Components
+@inherits LayoutComponentBase
+ 
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+  @* <MudAB></MudAB> *@
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Medium">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
