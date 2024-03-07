@@ -1,14 +1,20 @@
 ﻿@using MudBlazorWebApp.Client.Components
 @inherits LayoutComponentBase
 
-<MyMudThemeProvider />
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
+@* <MudDialogProvider/> *@
+@* <MudSnackbarProvider/> *@
+@* <MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode"/> *@
+
+
 
 <div class="page mud-layout">
 
     <div class="sidebar mud-elevation-1">
         <div class="top-row mud-drawer-head">
             <div>
-                <a class="navbar-brand" href="https://mudblazor.com/" target="_blank">MudBlazor</a>
+                <a class="navbar-brand" href="https://mudblazor.com/" target="_blank">MudBlazor Server</a>
             </div>
         </div>
 
@@ -37,3 +43,17 @@
     <a class="dismiss">🗙</a>
 </div>
 
+@code{
+    private MudTheme _theme = new();
+    private bool _isDarkMode = true;
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // if (firstRender)
+        // {
+        //     _isDarkMode = await _theme.GetSystemPreference();
+        //     StateHasChanged();
+        // }
+    }
+    
+}

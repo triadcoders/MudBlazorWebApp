@@ -1,9 +1,24 @@
 ﻿@page "/"
+@inject ISnackbar Snackbar
+@inject IJSRuntime JS
+@using Microsoft.JSInterop;
+@using System.Diagnostics
+
+@rendermode InteractiveServer
+
+
+
+@* <p>Has to be where the rendermode is, since no render mode in mainlayout it would not work.</p> *@
+<MudSnackbarProvider/>
+@* <MudDialogProvider @rendermode="InteractiveServer"/> *@
 
 <PageTitle>Home</PageTitle>
 
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => Snackbar.Add("Simple Snackbar"))">
+    Open Snackbar
+</MudButton>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
+<MudText Typo="Typo.h3" GutterBottom="true">Hello, world! @result </MudText>
 <MudText Class="mb-8">Welcome to your new app, powered by MudBlazor and the .NET 8 Template!</MudText>
 
 <MudAlert Severity="Severity.Normal">
@@ -52,3 +67,39 @@
     </MudLink>
 </MudText>
 
+<MudButton @onclick="DoIt">Do it</MudButton>
+@code {
+
+    string result = "NA";
+
+    
+    private IJSObjectReference? module;
+    string RenderModeText = "No Render answer";
+    
+    // In your Blazor component:
+    async Task InitializeRenderModeInfo(bool theAnswer) {
+        if (theAnswer) {
+            RenderModeText = "Server-side rendering";
+        } else {
+            RenderModeText = "Likely client-side rendering";
+        }
+    }
+
+    public void DoIt()
+    {
+     //   string RenderModeText = "Trying...";
+        
+    //    bool theAnswer = await JS.InvokeAsync<bool>("isWebSocketOpen");
+
+          // await JS.InvokeVoidAsync("isWebSocketOpen");
+        //  await JS.InvokeAsync<object>("alert2", "This is an alert message from Hmm!");
+
+
+     //   await InitializeRenderModeInfo(theAnswer);
+     Debug.WriteLine("Do it was hit");
+     Snackbar.Add("Test Snackbar message");
+     //   result = RenderModeText.ToString();
+       // StateHasChanged();
+    }
+
+}

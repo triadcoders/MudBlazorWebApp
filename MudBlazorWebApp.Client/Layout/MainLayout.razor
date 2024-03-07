@@ -1,38 +1,31 @@
-﻿@using MudBlazorWebApp.Client.Components
-@inherits LayoutComponentBase
-
-<MudThemeProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
-@* 
-<div class="page mud-layout"> *@
-    
-
-      <NewLayout></NewLayout>
-
-
-
-
-     <main>
-
-
-      @*   <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="my-2 pt-2">
-            @Body
-        </MudContainer> *@
-
-
-        <MudMainContent>
-            <MudContainer MaxWidth="MaxWidth.Medium">
-                @Body
-            </MudContainer>
-        </MudMainContent>
-
-    </main>
+﻿@* @using MudBlazorWebApp.Client.Components *@
+@* @inherits LayoutComponentBase *@
+@* *@
+@* <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/> *@
+@* <MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode"/> *@
+@* *@
+@* <MudDialogProvider /> *@
+@* <MudSnackbarProvider /> *@
+@* *@
+@* <h1>MainLayout Test</h1> *@
+@*       <NewLayout></NewLayout> *@
+@* *@
+@*      <main> *@
+@*         <MudMainContent> *@
+@*             <MudContainer MaxWidth="MaxWidth.Medium"> *@
+@*                 @Body *@
+@*             </MudContainer> *@
+@*         </MudMainContent> *@
+@*     </main> *@
+@* *@
+@* *@
+@* <div id="blazor-error-ui"> *@
+@*     An unhandled error has occurred. *@
+@*     <a href="" class="reload">Reload</a> *@
+@*     <a class="dismiss">🗙</a> *@
 @* </div> *@
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
-
+@code{
+ //   private MudTheme _theme = new();
+  //  private bool _isDarkMode;
+}
