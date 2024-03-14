@@ -4,19 +4,19 @@
 @using Microsoft.JSInterop;
 @using System.Diagnostics
 
-@rendermode InteractiveServer
+@* @rendermode InteractiveServer *@
 
 
 
 @* <p>Has to be where the rendermode is, since no render mode in mainlayout it would not work.</p> *@
-<MudSnackbarProvider/>
+@* <MudSnackbarProvider/> *@
 @* <MudDialogProvider @rendermode="InteractiveServer"/> *@
 
 <PageTitle>Home</PageTitle>
 
-<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => Snackbar.Add("Simple Snackbar"))">
-    Open Snackbar
-</MudButton>
+@* <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => Snackbar.Add("Simple Snackbar"))"> *@
+@*     Open Snackbar *@
+@* </MudButton> *@
 
 <MudText Typo="Typo.h3" GutterBottom="true">Hello, world! @result </MudText>
 <MudText Class="mb-8">Welcome to your new app, powered by MudBlazor and the .NET 8 Template!</MudText>

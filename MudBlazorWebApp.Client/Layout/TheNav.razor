@@ -1,0 +1,93 @@
+@using System.Runtime.InteropServices.Marshalling
+@rendermode InteractiveWebAssembly
+
+
+@* <MudPaper Height="200px" Class="mud-theme-primary" Style="overflow:hidden; position:relative;"> *@
+
+
+@*     <MudDrawerContainer Class="mud-height-full"> *@
+<button @onclick="() => openStart = !openStart" class="fa-solid fa-bars"></button>
+
+<MudDrawer @bind-Open="@openStart" Anchor="Anchor.Start" Elevation="0" Variant="@DrawerVariant.Persistent">
+    @* <MudDrawerHeader> *@
+    @*     <MudText Typo="Typo.h6">My App</MudText> *@
+    @* </MudDrawerHeader> *@
+    <MudNavMenu Class="mud-width-full">
+        <MudText Typo="Typo.h6" Class="px-4">My Application</MudText>
+        <MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">Secondary Text</MudText>
+        <MudDivider Class="my-2"/>
+        <MudNavLink Href="/dashboard" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
+        <MudNavGroup Title="Level 0" Icon="@Icons.Material.Filled.Settings" Expanded="true">
+            <MudNavGroup Title="Level 1" Icon="@Icons.Material.Filled.AdminPanelSettings" Expanded="true">
+                <MudNavGroup Title="Level 2" Icon="@Icons.Material.Filled.People" Expanded="true">
+                    <MudNavGroup Title="Level 3" Icon="@Icons.Material.Filled.Lock" Expanded="true">
+                        <MudNavLink Href="/delete" Icon="@Icons.Material.Filled.DeleteForever">Delete Password</MudNavLink>
+                    </MudNavGroup>
+                </MudNavGroup>
+            </MudNavGroup>
+        </MudNavGroup>
+        <MudNavLink Href="/" Icon="@Icons.Material.Filled.Receipt">Billing</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All" Href="/GridTest" Icon="@Icons.Material.Filled.Badge">Grid Test</MudNavLink>
+    </MudNavMenu>
+</MudDrawer>
+
+@if (false == true)
+{
+    @* <MudButton @onclick="ToggleStartDrawer">Open Menu</MudButton> *@
+    @* <MudButton @onclick="() => openStart = !openStart">Toggle</MudButton> *@
+
+    <MudDrawer @bind-Open="canShow" Anchor="Anchor.Start" Elevation="0" Variant="@DrawerVariant.Persistent">
+        <MudDrawerHeader>
+            @* <MudButton @onclick="() => openStart = !openStart">Toggle</MudButton> *@
+            <i @onclick="() => openStart = !openStart" class="fa-solid fa-bars"></i>
+            @* <i @onclick="() => openStart = !openStart" class="fa-solid fa-bars"></i> *@
+        </MudDrawerHeader>
+        @* <MudNavMenu> *@
+        @*     <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Store">Store</MudNavLink> *@
+        @*     <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.LocalLibrary">Library</MudNavLink> *@
+        @*     <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Forum">Community</MudNavLink> *@
+        @*     *@
+        @* </MudNavMenu> *@
+    </MudDrawer>
+}
+@* <MudDrawer @bind-Open="@openEnd" Fixed="false" Anchor="Anchor.End" Elevation="0" Variant="@DrawerVariant.Persistent"> *@
+@*     <MudDrawerHeader> *@
+@*         <MudText Typo="Typo.h6">Settings</MudText> *@
+@*     </MudDrawerHeader> *@
+@*     <MudNavMenu> *@
+@*         <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.AccountBox">Profile</MudNavLink> *@
+@*         <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ShoppingCart">Orders</MudNavLink> *@
+@*         <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.History">Order History</MudNavLink> *@
+@*     </MudNavMenu> *@
+@* </MudDrawer> *@
+@* <div class="d-flex justify-center align-center mud-height-full"> *@
+@*     <MudButton Color="Color.Inherit" OnClick="@ToggleStartDrawer" StartIcon="@(Rtl ? Icons.Material.Filled.East : Icons.Material.Filled.West)" Class="mx-2">Toggle start</MudButton> *@
+@*     <MudButton Color="Color.Inherit" OnClick="@ToggleEndDrawer" EndIcon="@(Rtl ? Icons.Material.Filled.West : Icons.Material.Filled.East)" Class="mx-2">Toggle end</MudButton> *@
+@* *@
+@*     </div> *@
+
+@*     </MudDrawerContainer> *@
+@* </MudPaper> *@
+
+@code
+{
+    [CascadingParameter] public bool Rtl { get; set; }
+    [Parameter] public bool TheToggle { get; set; }
+
+
+    bool openStart = true;
+    bool openEnd = false;
+    bool canShow = true;
+
+    public void ToggleStartDrawer()
+    {
+        openStart = !openStart;
+    }
+
+    void ToggleEndDrawer()
+    {
+        openEnd = !openEnd;
+    }
+
+
+}
