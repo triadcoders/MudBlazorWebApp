@@ -1,0 +1,40 @@
+@page "/DbTest"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@using MudBlazorWebApp
+@inject IMessageController mc;
+
+
+<h3>Db Test</h3>
+
+
+<PageTitle>DB TEST</PageTitle>
+
+<h1>Hello, @handler!</h1>
+
+<h2>@result</h2>
+
+
+@code
+{
+    string handler;
+    string result = "NA";
+    
+    protected override void OnInitialized ()
+    {
+        if (OperatingSystem.IsBrowser())
+        {
+            handler = "WASM";
+            result = mc.AnnounceMessage(); 
+            this.StateHasChanged();
+        }
+        else
+        {
+            handler = "Server";
+            result = mc.AnnounceMessage();
+            this.StateHasChanged();
+        }
+        
+      
+        
+    }
+}

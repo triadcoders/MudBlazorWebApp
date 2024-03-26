@@ -1,0 +1,44 @@
+@page "/SelectTest"
+
+<h1>SelectTest</h1>
+<br/>
+<br/>
+<br/>
+
+
+<MudToggleIconButton @bind-Toggled="@_isOpen" Icon="@Icons.Material.Filled.PunchClock" Color="@Color.Primary"
+                     ToggledIcon="@Icons.Material.Filled.PunchClock" ToggledColor="@Color.Secondary"/>
+<MudPopover Open="@_isOpen" Fixed="true" Class="px-4 pt-4">
+    <MudSelect T="int" @bind-Value="_timeValue">
+            <MudSelectItem Value="0">0</MudSelectItem>
+            <MudSelectItem Value="30">30</MudSelectItem>
+     
+    </MudSelect>
+</MudPopover>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h1>Time Value: @_timeValue</h1>
+<br/>
+<br/>
+<br/>
+@* <MudButton OnClick="Updatepdate">Update State</MudButton> *@
+
+@code {
+    private int _timeValue = 0;
+
+
+    private bool _isOpen;
+
+    public void ToggleOpen()
+    {
+        if (_isOpen)
+            _isOpen = false;
+        else
+            _isOpen = true;
+    }
+
+
+}

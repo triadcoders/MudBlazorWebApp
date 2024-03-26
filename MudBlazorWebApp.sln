@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudBlazorWebApp", "MudBlazo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudBlazorWebApp.Client", "MudBlazorWebApp.Client\MudBlazorWebApp.Client.csproj", "{332E0DA1-6D3B-43C2-972C-C979BA1C0C1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWrightTest", "PlayWrightTest\PlayWrightTest.csproj", "{C2F0AF39-9F1D-45FD-A2B0-6CEDF767A901}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{332E0DA1-6D3B-43C2-972C-C979BA1C0C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{332E0DA1-6D3B-43C2-972C-C979BA1C0C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{332E0DA1-6D3B-43C2-972C-C979BA1C0C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F0AF39-9F1D-45FD-A2B0-6CEDF767A901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F0AF39-9F1D-45FD-A2B0-6CEDF767A901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F0AF39-9F1D-45FD-A2B0-6CEDF767A901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F0AF39-9F1D-45FD-A2B0-6CEDF767A901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

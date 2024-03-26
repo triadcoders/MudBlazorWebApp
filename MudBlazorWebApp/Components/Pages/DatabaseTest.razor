@@ -1,0 +1,37 @@
+@page "/DatabaseTest"
+@using MudBlazorWebApp.Service
+@using System.Reflection
+<h3>DatabaseTest</h3>
+<MudButton OnClick="TestDb">Test DB</MudButton>
+
+
+@if (customers != null)
+{
+    foreach (Customer customer in customers)
+    {
+        <ul>
+            <li>
+                cust: @customer
+            </li>
+        </ul>
+    }
+}
+
+
+@code {
+
+    List<Customer> customers;
+    private void TestDb()
+    {
+        using var context = new Service.MyDbContext();
+
+// Add a new customer
+        context.Customers.Add(new Service.Customer { Name = "John Doe" });
+        context.SaveChanges();
+
+// Retrieve all customers
+         customers = context.Customers.ToList();
+    }
+    
+    
+}

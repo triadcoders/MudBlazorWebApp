@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using MudBlazor.Services;
 using MudBlazorWebApp;
 using MudBlazorWebApp.Client.Pages;
@@ -16,7 +17,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddMudServices(config =>
 {
-   // config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomLeft;
+    // config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomLeft;
 
     config.SnackbarConfiguration.PreventDuplicates = false;
     config.SnackbarConfiguration.NewestOnTop = false;
@@ -24,7 +25,7 @@ builder.Services.AddMudServices(config =>
     config.SnackbarConfiguration.VisibleStateDuration = 10000;
     config.SnackbarConfiguration.HideTransitionDuration = 500;
     config.SnackbarConfiguration.ShowTransitionDuration = 500;
-  //  config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
+    //  config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
 });
 builder.Services.AddSingleton<IMessageController, MessageController>();
 
@@ -39,7 +40,7 @@ else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    
+
     app.UseHsts();
 }
 
@@ -52,5 +53,45 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(Counter).Assembly);
+
+app.MapGet("/Hello", () => "Hello, World!");
+//https://khalidabuhakmeh.com/razorslices-razor-views-with-aspnet-core-minimal-apis
+
+TimeSpan ts = new();
+Stopwatch stopwatch = new();
+
+
+app.MapGet("/StopWatch", () =>
+{
+    MyDbContext dbContext = new MyDbContext();
+
+    Customer myCustomer = new Customer() { Id = 2, Name = "FRED" };
+
+    dbContext.Update(myCustomer);
+    dbContext.SaveChanges();
+    
+    dbContext.Customers.Add(myCustomer);
+    
+    if (stopwatch.IsRunning == false)
+    {
+        stopwatch.Start();
+    }
+    else
+    {
+        ts = stopwatch.Elapsed;
+        if (ts.Seconds <= 10)
+        {
+            int diffTs = 10 - ts.Seconds;
+            Thread.Sleep(int.Abs(diffTs) * 1000);
+            stopwatch.Stop();
+            stopwatch.Reset();
+        }
+    }
+
+    stopwatch.Reset();
+    stopwatch.Start();
+    return $"The End Point Ran again - {DateTime.Now}";
+});
+
 
 app.Run();
