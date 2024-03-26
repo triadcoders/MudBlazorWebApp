@@ -17,7 +17,7 @@ public class MyDbContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = "Server=SABRECHAD;Database=BlazorDemo;User Id=theadmin;Password=password;;TrustServerCertificate=true";
+        var connectionString = "Server=USER;Database=BlazorDemo;User Id=admin;Password=password;;TrustServerCertificate=true";
         optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("MudBlazorWebApp")); // Adjust assembly name
     }
     
